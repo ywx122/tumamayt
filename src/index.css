@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 100% 4%;
+    --foreground: 200 100% 85%;
+
+    --card: 220 100% 8%;
+    --card-foreground: 200 100% 85%;
+
+    --popover: 220 100% 8%;
+    --popover-foreground: 200 100% 85%;
+
+    --primary: 200 100% 60%;
+    --primary-foreground: 220 100% 4%;
+
+    --secondary: 220 100% 12%;
+    --secondary-foreground: 200 100% 85%;
+
+    --muted: 220 100% 12%;
+    --muted-foreground: 200 50% 65%;
+
+    --accent: 220 100% 12%;
+    --accent-foreground: 200 100% 85%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 200 100% 85%;
+
+    --border: 200 100% 20%;
+    --input: 220 100% 12%;
+    --ring: 200 100% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 100% 4%;
+    --sidebar-foreground: 200 100% 85%;
+    --sidebar-primary: 200 100% 60%;
+    --sidebar-primary-foreground: 220 100% 4%;
+    --sidebar-accent: 220 100% 8%;
+    --sidebar-accent-foreground: 200 100% 85%;
+    --sidebar-border: 200 100% 20%;
+    --sidebar-ring: 200 100% 60%;
+  }
+
+  .dark {
+    --background: 220 100% 4%;
+    --foreground: 200 100% 85%;
+
+    --card: 220 100% 8%;
+    --card-foreground: 200 100% 85%;
+
+    --popover: 220 100% 8%;
+    --popover-foreground: 200 100% 85%;
+
+    --primary: 200 100% 60%;
+    --primary-foreground: 220 100% 4%;
+
+    --secondary: 220 100% 12%;
+    --secondary-foreground: 200 100% 85%;
+
+    --muted: 220 100% 12%;
+    --muted-foreground: 200 50% 65%;
+
+    --accent: 220 100% 12%;
+    --accent-foreground: 200 100% 85%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 200 100% 85%;
+
+    --border: 200 100% 20%;
+    --input: 220 100% 12%;
+    --ring: 200 100% 60%;
+
+    --sidebar-background: 220 100% 4%;
+    --sidebar-foreground: 200 100% 85%;
+    --sidebar-primary: 200 100% 60%;
+    --sidebar-primary-foreground: 220 100% 4%;
+    --sidebar-accent: 220 100% 8%;
+    --sidebar-accent-foreground: 200 100% 85%;
+    --sidebar-border: 200 100% 20%;
+    --sidebar-ring: 200 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-sonic-dark text-sonic-blue;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: 0.05em;
+  }
+}
+
+@layer components {
+  .glow-text {
+    text-shadow: 
+      0 0 5px rgba(0, 150, 255, 0.8), 
+      0 0 10px rgba(0, 150, 255, 0.6),
+      0 0 20px rgba(0, 150, 255, 0.4),
+      0 0 40px rgba(0, 150, 255, 0.2);
+  }
+
+  .glow-border {
+    box-shadow: 
+      0 0 5px rgba(0, 150, 255, 0.8), 
+      0 0 10px rgba(0, 150, 255, 0.6),
+      0 0 20px rgba(0, 150, 255, 0.4);
+  }
+  
+  .bubble {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(0, 150, 255, 0.8), rgba(0, 150, 255, 0.1));
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .backdrop-blur-menu {
+    backdrop-filter: blur(8px);
+    background-color: rgba(0, 20, 60, 0.8);
+  }
+  
+  .spdm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .lightning-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(45deg, rgba(0, 150, 255, 0) 70%, rgba(0, 150, 255, 0.1) 100%);
+    animation: lightning 2s infinite;
+  }
+
+  @keyframes lightning {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .dashboard-bg {
+    background-color: rgba(0, 20, 60, 0.85);
+    backdrop-filter: blur(10px);
+  }
+
+  .sonic-lightning {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .lightning-bolt {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+      rgba(0, 150, 255, 1) 0%,
+      rgba(0, 200, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0.6) 100%
+    );
+    box-shadow: 
+      0 0 10px rgba(0, 150, 255, 0.8),
+      0 0 20px rgba(0, 150, 255, 0.6),
+      0 0 30px rgba(0, 150, 255, 0.4);
+    animation: lightning-strike 3s infinite;
+  }
+
+  @keyframes lightning-strike {
+    0% {
+      opacity: 0;
+      transform: translateY(-100vh) scaleY(0);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(-50vh) scaleY(0.5);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
+    30% {
+      opacity: 0.8;
+      transform: translateY(20vh) scaleY(1.2);
+    }
+    40% {
+      opacity: 0;
+      transform: translateY(100vh) scaleY(0.8);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) scaleY(0);
+    }
+  }
+
+  .hacker-text {
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+  }
+
+  .sonic-glow {
+    text-shadow: 
+      0 0 5px rgba(0, 150, 255, 1),
+      0 0 10px rgba(0, 150, 255, 0.8),
+      0 0 20px rgba(0, 150, 255, 0.6),
+      0 0 40px rgba(0, 150, 255, 0.4),
+      0 0 80px rgba(0, 150, 255, 0.2);
+  }
+}
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
